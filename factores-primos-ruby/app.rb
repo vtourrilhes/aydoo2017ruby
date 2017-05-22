@@ -24,9 +24,15 @@
 
   post '/primos' do
   
-  
     numero_obtenido = "#{params['x']}"
-    numero_obtenido
     
+    calculador = CalculadorFactoresPrimos.new
+    formateador = FormateadorFactoresPrimos.new
+        
+    arrayFactoresPrimos = calculador.calcularFactoresPrimos(numero_obtenido)
+    
+    respuesta = formateador.agregarComasYHacerString(arrayFactoresPrimos)
+    
+    respuesta
     
   end
