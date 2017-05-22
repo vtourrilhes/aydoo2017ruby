@@ -6,7 +6,7 @@
     c = CalculadorFactoresPrimos.new
     numero_obtenido = params[:x]
     
-    c.calcularFactoresPrimos x
+    c.calcularFactoresPrimos numero_obtenido
     
     return numero_obtenido;
   end

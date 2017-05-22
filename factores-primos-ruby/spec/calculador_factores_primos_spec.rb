@@ -5,8 +5,8 @@ describe 'Chopper' do
 
   let(:calculador) { CalculadorFactoresPrimos.new }  
    
-  it 'calculador deberia devolver Calculo factores primos' do
-    expect(calculador.calcularFactoresPrimos).to eq "Calculo factores primos"
+  it 'El calculador al recibir 360 deberia devolver [2,2,2,3,3,5]' do
+    expect(calculador.calcularFactoresPrimos(360)).to eq [2,2,2,3,3,5]
   end
 
 end
