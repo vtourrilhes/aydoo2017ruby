@@ -4,5 +4,5 @@ for dir in */ ; do
   cd $dir
   bundle install
   rake
-  cd..
+  cd ..
 done
