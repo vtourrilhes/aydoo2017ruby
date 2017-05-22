@@ -1,6 +1,6 @@
 set -e
 
-for fir in */ ; do
+for dir in */ ; do
   cd $dir
   bundle install
   rake
