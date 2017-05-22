@@ -5,9 +5,13 @@
 
   get '/primos' do
     
-    respuesta = 400
+    respuesta = "400"
     
     numero_obtenido = params[:x]
+    
+    if !es_numerico?(numero_obtenido)
+      return respuesta
+    end
     
     calculador = CalculadorFactoresPrimos.new
     formateador = FormateadorFactoresPrimos.new
@@ -24,7 +28,13 @@
 
   post '/primos' do
   
+    respuesta = "400"
+  
     numero_obtenido = "#{params['x']}"
+    
+    if !es_numerico?(numero_obtenido)
+      return respuesta
+    end
     
     calculador = CalculadorFactoresPrimos.new
     formateador = FormateadorFactoresPrimos.new
@@ -35,4 +45,11 @@
     
     respuesta
     
+  end
+  
+  private 
+  def es_numerico?(string)
+  
+    true if Integer(string) rescue false
+  
   end
