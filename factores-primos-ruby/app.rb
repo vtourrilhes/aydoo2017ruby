@@ -24,11 +24,9 @@
 
   post '/primos' do
   
-    c = CalculadorFactoresPrimos.new
+  
+    numero_obtenido = "#{params['x']}"
+    numero_obtenido
     
-    numero_obtenido = "#{params['nombre']}"
-        
-    arrayFactoresPrimos = c.calcularFactoresPrimos(numero_obtenido)
     
-    arrayFactoresPrimos
   end
