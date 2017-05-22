@@ -1,3 +1,0 @@
-class Formateador
-
-end

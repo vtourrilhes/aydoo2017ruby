@@ -1,7 +1,7 @@
 require 'rspec' 
 require_relative '../model/calculador_factores_primos'
 
-describe 'Chopper' do
+describe 'CalculadorFactoresPrimos' do
 
   let(:calculador) { CalculadorFactoresPrimos.new }  
    

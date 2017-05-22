@@ -6,11 +6,20 @@
     c = CalculadorFactoresPrimos.new
     numero_obtenido = params[:x]
     
-    c.calcularFactoresPrimos numero_obtenido
+    arrayFactoresPrimos = c.calcularFactoresPrimos(numero_obtenido)
     
-    return numero_obtenido;
+    arrayFactoresPrimos
   end
 
-  post '/hola' do
-    "hola: #{params['nombre']}"
+  post '/primos' do
+  
+    c = CalculadorFactoresPrimos.new
+    o = OrdenadorFactoresPrimos.new
+    
+    numero_obtenido = "#{params['nombre']}"
+        
+    arrayFactoresPrimos = c.calcularFactoresPrimos(numero_obtenido)
+    o.invertir(arrayFactoresPrimos)
+    
+    arrayFactoresPrimos
   end
