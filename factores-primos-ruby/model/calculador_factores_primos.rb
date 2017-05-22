@@ -2,6 +2,7 @@ class CalculadorFactoresPrimos
 
   def calcularFactoresPrimos (numeroRecibido)
     resultado = []
+    numeroRecibido = numeroRecibido.to_i
     
     #este chequeo de errores no me cierra mucho
     if(numeroRecibido==1)

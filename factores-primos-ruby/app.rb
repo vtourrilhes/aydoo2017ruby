@@ -1,25 +1,34 @@
   require 'sinatra'
-  require_relative './model/calculador_factores_primos'
+  require_relative './model/calculador_factores_primos'  
+  require_relative './model/formateador_factores_primos'
+  require_relative './model/ordenador_factores_primos'
 
   get '/primos' do
     
-    c = CalculadorFactoresPrimos.new
+    respuesta = 400
+    
     numero_obtenido = params[:x]
     
-    arrayFactoresPrimos = c.calcularFactoresPrimos(numero_obtenido)
+    calculador = CalculadorFactoresPrimos.new
+    formateador = FormateadorFactoresPrimos.new
+    o = OrdenadorFactoresPrimos.new
     
-    arrayFactoresPrimos
+    arrayFactoresPrimos = calculador.calcularFactoresPrimos(numero_obtenido)
+    arrayFactoresPrimos = o.invertir(arrayFactoresPrimos)
+    
+    respuesta = formateador.agregarComasYHacerString(arrayFactoresPrimos)
+    
+    respuesta
+    
   end
 
   post '/primos' do
   
     c = CalculadorFactoresPrimos.new
-    o = OrdenadorFactoresPrimos.new
     
     numero_obtenido = "#{params['nombre']}"
         
     arrayFactoresPrimos = c.calcularFactoresPrimos(numero_obtenido)
-    o.invertir(arrayFactoresPrimos)
     
     arrayFactoresPrimos
   end

@@ -13,8 +13,13 @@ describe 'CalculadorFactoresPrimos' do
     expect(calculador.calcularFactoresPrimos(1)).to eq [1]
   end
   
-  it 'El calculador al recibir un numero fuera de rango deberia devolver nil' do
-    expect(calculador.calcularFactoresPrimos(1)).to eq [1]
+  it 'El calculador al recibir un cero deberia devolver nil' do
+    expect(calculador.calcularFactoresPrimos(0)).to eq nil
+  end
+  
+  
+  it 'El calculador al recibir un numero negativo deberia devolver nil' do
+    expect(calculador.calcularFactoresPrimos(-323)).to eq nil
   end
   
 end
