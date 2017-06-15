@@ -1,21 +1,13 @@
-Chopper, proyecto base ruby
+
+Factores primos 4 - ruby
 ===========================
 
 
-## Preparación del ambiente
+## Correcciones realizadas
 
-sudo apt-get update
-sudo apt-get install build-essential
-sudo apt-get install -y git
-gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-curl -sSL https://get.rvm.io | bash -s stable
-source ~/.rvm/scripts/rvm
-rvm install 2.2.0
-gem install bundler
+Se quito la logica del app.rb
 
-## Uso del proyecto
+Se creo la clase web_response que representa una resppuesta web, tiene un estado, un un tipo de contenido
+y un contenido
 
-Una vez realizada la instalación:
-
-1. Instalar las dependencias del proyecto ejecutando _bundle install_
-2. Ejecutar las pruebas ejecutando _rake_
+Se creo un manejador web que contiene la logica de cada llamada al app.rb y las maneja

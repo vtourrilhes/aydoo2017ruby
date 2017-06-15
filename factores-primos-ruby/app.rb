@@ -1,55 +1,25 @@
   require 'sinatra'
-  require_relative './model/calculador_factores_primos'  
-  require_relative './model/formateador_factores_primos'
-  require_relative './model/ordenador_factores_primos'
+  require_relative 'model/manejador_web'
 
   get '/primos' do
-    
-    respuesta = "400"
-    
-    numero_obtenido = params[:x]
-    
-    if !es_numerico?(numero_obtenido)
-      return respuesta
-    end
-    
-    calculador = CalculadorFactoresPrimos.new
-    formateador = FormateadorFactoresPrimos.new
-    o = OrdenadorFactoresPrimos.new
-    
-    arrayFactoresPrimos = calculador.calcularFactoresPrimos(numero_obtenido)
-    arrayFactoresPrimos = o.invertir(arrayFactoresPrimos)
-    
-    respuesta = formateador.agregarComasYHacerString(arrayFactoresPrimos)
-    
-    respuesta
-    
+    manejador = ManejadorWeb.new
+    webResponse = manejador.get_factores_primos(params[:x])
+    status webResponse.getEstado()
+    content_type webResponse.getContentType()
+
+    webResponse.getRespuesta()
   end
 
   post '/primos' do
-  
-    respuesta = "400"
-  
+
     numero_obtenido = "#{params['x']}"
-    
-    if !es_numerico?(numero_obtenido)
-      return respuesta
-    end
-    
-    calculador = CalculadorFactoresPrimos.new
-    formateador = FormateadorFactoresPrimos.new
-        
-    arrayFactoresPrimos = calculador.calcularFactoresPrimos(numero_obtenido)
-    
-    respuesta = formateador.agregarComasYHacerString(arrayFactoresPrimos)
-    
-    respuesta
-    
-  end
-  
-  private 
-  def es_numerico?(string)
-  
-    true if Integer(string) rescue false
-  
+    puts numero_obtenido
+    puts 'hola'
+    manejador = ManejadorWeb.new
+    webResponse = manejador.get_factores_primos(numero_obtenido)
+    status webResponse.getEstado()
+    content_type webResponse.getContentType()
+
+    webResponse.getRespuesta()
+
   end
